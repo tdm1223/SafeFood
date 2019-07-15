@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration
+  PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+
+  <typeAliases>
+  	<typeAlias alias="member" type="com.edu.ssafy.dto.Member"/>
+  	<typeAlias alias="food" type="com.edu.ssafy.dto.Food"/>
+  	<typeAlias alias="eat" type="com.edu.ssafy.dto.Eat"/>
+  	<typeAlias alias="qna" type="com.edu.ssafy.dto.QnA"/>
+  	<typeAlias alias="reply" type="com.edu.ssafy.dto.Reply"/>
+  	<typeAlias alias="categorize" type="com.edu.ssafy.dto.Categorize"/>
+  	<typeAlias alias="allergy" type="com.edu.ssafy.dto.Allergy"/>
+  	<typeAlias alias="dashboard" type="com.edu.ssafy.dto.Dashboard"/>
+    <typeAlias alias="cache" type="com.edu.ssafy.dto.Cache"/>
+  </typeAliases>
+
+</configuration>

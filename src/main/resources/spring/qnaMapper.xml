@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="qna">
+	<select id="selectList" parameterType="map" resultType="qna">
+		select
+		qno,qcode,categorize.description as description,qna.id,title,content,firstdate,lastdate
+		from qna left join categorize using(qcode),member
+		where qna.id=member.id
+		order by qno desc
+		limit #{startPage}, #{endPage};
+	</select>
+
+	<insert id="insert" parameterType="map">
+		insert into qna(qcode, id, title, content, firstdate, lastdate)
+		values(#{qcode},#{id},#{title},#{content},now(),now());
+	</insert>
+
+	<delete id="delete" parameterType="int">
+		delete from qna where qno = #{qno};
+	</delete>
+
+	<select id="selectOne" resultType="qna" parameterType="int">
+		select *
+		from qna where qno = #{qno}
+	</select>
+
+	<update id="update" parameterType="map">
+  		update qna 
+  		set title=#{title}, content=#{content}, lastdate=now() 
+  		where qno = #{qno};
+  	</update>
+  	
+  	<select id="selectCount" resultType="int">
+  		select count(*) from qna;
+  	</select>
+</mapper>

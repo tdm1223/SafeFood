@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="mem">
+
+	<resultMap id="memberEat" type="eat">
+		<result column="eno" property="eno" />
+		<result column="code" property="code" />
+		<result column="quan" property="quan" />
+		<result column="edate" property="edate" />
+	</resultMap>
+
+	<resultMap id="cacheMap" type="cache">
+		<result column="id" property="id" />
+		<result column="food1" property="food1" />
+		<result column="food2" property="food2" />
+		<result column="food3" property="food3" />
+	</resultMap>
+
+
+	<select id="selectList" resultType="member">
+		select * from member order by
+		id;
+	</select>
+
+	<select id="selectOne" parameterType="string"
+		resultType="member">
+		select * from member where id = #{id};
+	</select>
+
+	<select id="login" parameterType="map" resultType="member">
+		select * from
+		member where id = #{id} and pw=#{pw};
+	</select>
+
+	<insert id="insert" parameterType="member">
+		insert into member
+		values(#{id}, #{pw}, #{name}, #{addr});
+	</insert>
+
+	<update id="update" parameterType="member">
+		update member set pw=#{pw},
+		name=#{name}, addr=#{addr} where id = #{id};
+	</update>
+
+	<delete id="delete" parameterType="string">
+		delete from member where id =
+		#{id};
+	</delete>
+
+	<select id="selectPw" parameterType="map" resultType="string">
+		select pw
+		from member where id=#{id} and phone=#{phone}
+	</select>
+
+	<delete id="delZzim" parameterType="map">
+		delete from zzim where id =
+		#{id} and code = #{code}
+	</delete>
+
+	<select id="selectById" parameterType="string"
+		resultType="member">
+		select id, pw, name, addr, phone from member where id =
+		#{id}
+	</select>
+
+	<insert id="eatFood" parameterType="map">
+		insert into eat (id, code,
+		quan, edate) values(#{id}, #{code}, #{quan}, now())
+	</insert>
+
+	<!-- <insert id="eatFood" parameterType="map"> insert into eat values(#{id}, 
+		#{code}, #{quan}) on duplicate key update quan=(select a.quan from eat a 
+		where id=#{id} and code=#{code})+#{quan} </insert> -->
+	<insert id="zzimFood" parameterType="map">
+		insert into zzim (id,code)
+		select #{id},#{code} from dual
+		where not exists(select * from zzim
+		where id=#{id} and code=#{code});
+	</insert>
+
+	<select id="getZzimList" parameterType="string" resultType="int">
+		select code from zzim where id = #{id}
+	</select>
+
+	<delete id="delAllergy" parameterType="string">
+		delete from memberAllergy
+		where id=#{id}
+	</delete>
+
+	<insert id="addMember" parameterType="map">
+		insert into member (id, pw,
+		name, addr, phone) values(#{id}, #{pw}, #{name},
+		#{addr}, #{phone});
+	</insert>
+
+	<insert id="addAllergy" parameterType="map">
+		insert into MemberAllergy
+		values(#{code}, #{id});
+	</insert>
+
+	<select id="getMemAllergy" parameterType="string"
+		resultType="string">
+		select name from memberallergy inner join allergy
+		using(code) where
+		id=#{id};
+	</select>
+
+	<select id="eatList" parameterType="map" resultType="eat"
+		resultMap="memberEat">
+		select eno, code, quan, edate from eat where id = #{id}
+	</select>
+
+	<select id="eatCount" parameterType="map" resultType="int">
+		select quan
+		from eat where eno = #{eno}
+	</select>
+	<delete id="delEat" parameterType="map">
+		delete from eat where
+		eno=#{eno}
+	</delete>
+
+	<update id="updateEat" parameterType="map">
+		update eat set quan =
+		quan-#{quan} where eno=#{eno};
+	</update>
+
+	<select id="allerList" resultType="allergy">
+		select * from allergy;
+	</select>
+
+	<select id="eatData" parameterType="map" resultType="dashboard">
+		select
+		DATE_FORMAT(edate, "%Y-%m") as edate, sum(calory) as calory,
+		sum(carbo) as carbo,
+		sum(protein) as protein, sum(fat) as fat,
+		sum(sugar) as sugar, sum(natrium) as
+		natrium,
+		sum(chole) as chole,
+		sum(fattyacid) as fattyacid, sum(transfat) as transfat
+		from
+		food inner
+		join
+		(select edate, code from eat where id=#{id} and edate >
+		DATE_SUB(now() ,INTERVAL 12 month)) as b using(code)
+		group by
+		month(edate);
+	</select>
+
+	<select id="selectCache" parameterType="string"
+		resultMap="cacheMap" resultType="cache">
+		select * from recommand where id =
+		#{id}
+	</select>
+
+	<delete id="deleteCache" parameterType="string">
+		delete from recommand
+		where id = #{id}
+	</delete>
+
+	<insert id="insertCache" parameterType="map">
+		insert into recommand
+		values(#{id},#{food1},#{food2},#{food3})
+	</insert>
+
+	<select id="updateRecommand" parameterType="map"
+		resultType="food">
+		select * from food where
+		name like CONCAT('%',#{name},'%')
+		or maker like CONCAT('%',#{maker},'%')
+		or calory=#{calory}
+		order by rand()
+		limit 4;
+	</select>
+</mapper>
