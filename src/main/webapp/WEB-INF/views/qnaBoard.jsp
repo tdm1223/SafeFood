@@ -6,7 +6,7 @@
 <html lang="en" class="default-style">
 
 <head>
-<title>Q&A</title>
+<title>QnA</title>
 
 <meta charset="utf-8">
 <meta http-equiv="x-ua-compatible" content="IE=edge,chrome=1">
@@ -246,7 +246,7 @@
 
 						<h4
 							class="d-flex justify-content-between align-items-center w-100 font-weight-bold py-3 mb-4">
-							<div>Q&A</div>
+							<div>QnA</div>
 						</h4>
 
 						<div class="card">

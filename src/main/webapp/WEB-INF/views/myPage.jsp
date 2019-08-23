@@ -286,7 +286,7 @@
 								<a class="nav-link dropdown-toggle" href="#"
 									data-toggle="dropdown"> <span
 									class="d-inline-flex flex-lg-row-reverse align-items-center align-middle">
-										<img src="/resources/assets/img/avatars/1.png" alt
+										<img src="/resources/assets/img/avatars/1.png" alt="profile"
 										class="d-block ui-w-30 rounded-circle"> <span
 										class="px-1 mr-lg-2 ml-2 ml-lg-0">${sessionScope.id }</span>
 								</span>

@@ -116,7 +116,7 @@
 					}
 				%>
 				<div class="col-sm-2">
-					<a href="/qna/list">Q&A</a>
+					<a href="/qna/list">QnA</a>
 				</div>
 				<div class="col-sm-1">
 					<span class="glyphicon glyphicon-search"></span>

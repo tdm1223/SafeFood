@@ -276,21 +276,23 @@
 				<!-- Overlay -->
 				<div class="layout-overlay layout-sidenav-toggle"></div>
 			</div>
-			<!-- / Layout wrapper -->
+		</div>
+	</div>
+	<!-- / Layout wrapper -->
 
-			<!-- Core scripts -->
-			<script src="/resources/assets/vendor/libs/popper/popper.js"></script>
-			<script src="/resources/assets/vendor/js/bootstrap.js"></script>
-			<script src="/resources/assets/vendor/js/sidenav.js"></script>
+	<!-- Core scripts -->
+	<script src="/resources/assets/vendor/libs/popper/popper.js"></script>
+	<script src="/resources/assets/vendor/js/bootstrap.js"></script>
+	<script src="/resources/assets/vendor/js/sidenav.js"></script>
 
-			<!-- Libs -->
-			<script
-				src="/resources/assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.js"></script>
+	<!-- Libs -->
+	<script
+		src="/resources/assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.js"></script>
 
-			<!-- Demo -->
-			<script src="/resources/assets/js/demo.js"></script>
+	<!-- Demo -->
+	<script src="/resources/assets/js/demo.js"></script>
 
-			<script type="text/javascript">
+	<script type="text/javascript">
  	function YMDFormatter(num){
 	     if(!num) return "";
 	     var formatNum = '';

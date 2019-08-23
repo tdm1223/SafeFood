@@ -6,7 +6,7 @@
 <html lang="en" class="default-style">
 
 <head>
-<title>Q&A 추가</title>
+<title>QnA 추가</title>
 
 <meta charset="utf-8">
 <meta http-equiv="x-ua-compatible" content="IE=edge,chrome=1">

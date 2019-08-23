@@ -310,22 +310,23 @@ function del(eno) {
 			<!-- Overlay -->
 			<div class="layout-overlay layout-sidenav-toggle"></div>
 		</div>
-		<!-- / Layout wrapper -->
+	</div>
+	<!-- / Layout wrapper -->
 
-		<!-- Core scripts -->
-		<script src="/resources/assets/vendor/libs/popper/popper.js"></script>
-		<script src="/resources/assets/vendor/js/bootstrap.js"></script>
-		<script src="/resources/assets/vendor/js/sidenav.js"></script>
+	<!-- Core scripts -->
+	<script src="/resources/assets/vendor/libs/popper/popper.js"></script>
+	<script src="/resources/assets/vendor/js/bootstrap.js"></script>
+	<script src="/resources/assets/vendor/js/sidenav.js"></script>
 
-		<!-- Libs -->
-		<script
-			src="/resources/assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.js"></script>
-		<script src="/resources/assets/vendor/libs/datatables/datatables.js"></script>
-		<script src="/resources/assets/vendor/libs/numeral/numeral.js"></script>
+	<!-- Libs -->
+	<script
+		src="/resources/assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.js"></script>
+	<script src="/resources/assets/vendor/libs/datatables/datatables.js"></script>
+	<script src="/resources/assets/vendor/libs/numeral/numeral.js"></script>
 
-		<!-- Demo -->
-		<script src="/resources/assets/js/demo.js"></script>
-		<!-- 		<script src="/resources/assets/js/pages_e-commerce_order-list.js"></script> -->
+	<!-- Demo -->
+	<script src="/resources/assets/js/demo.js"></script>
+	<!-- 		<script src="/resources/assets/js/pages_e-commerce_order-list.js"></script> -->
 </body>
 
 </html>

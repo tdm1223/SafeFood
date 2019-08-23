@@ -1,22 +1,19 @@
 package com.edu.ssafy.dto;
 
-import java.util.Deque;
 import java.util.HashSet;
-import java.util.Iterator;
 import java.util.LinkedList;
-
-import org.springframework.stereotype.Repository;
 
 public class Cache {
 	private String id;
 	private int food1;
 	private int food2;
 	private int food3;
-	private LinkedList<Food> dq  = new LinkedList<Food>();
+	private LinkedList<Food> dq = new LinkedList<Food>();
 	private HashSet<Integer> map = new HashSet<Integer>();
 	private int csize = 3;
-	
-	public Cache() {}
+
+	public Cache() {
+	}
 
 	public LinkedList<Food> getDq() {
 		return dq;
@@ -99,6 +96,5 @@ public class Cache {
 	public void setFood3(int food3) {
 		this.food3 = food3;
 	}
-	
 
 }

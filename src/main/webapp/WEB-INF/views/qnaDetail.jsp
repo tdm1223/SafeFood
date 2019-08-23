@@ -6,7 +6,7 @@
 <html lang="en" class="default-style">
 
 <head>
-<title>Q&A</title>
+<title>QnA</title>
 <script type="text/javascript">
 	function del(qno) {
 		location.href = "delete?qno=" + qno;
