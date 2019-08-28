@@ -50,7 +50,6 @@ $(function() {
           },
           children: [
             { text: 'bg.jpg', type: 'img' },
-            { text: 'logo.png', type: 'img' },
             { text: 'avatar.png', type: 'img' },
           ],
         },

@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8" import="java.util.*,com.edu.ssafy.dto.Food"%>
+	pageEncoding="UTF-8" import="java.util.*,com.edu.safefood.dto.Food"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 
@@ -104,13 +104,8 @@ function del(eno) {
 
 				<!-- Brand demo (see /resources/assets/css/demo/demo.css) -->
 				<div class="app-brand demo">
-					<a href="/index"><img alt="" src="/resources/img/logo.png"
-						width="50px"></a> <a href="/index"
-						class="app-brand-text demo sidenav-text font-weight-normal ml-2">SafeFood</a>
 					<a href="/index"
-						class="layout-sidenav-toggle sidenav-link text-large ml-auto">
-						<i class="ion ion-md-menu align-middle"></i>
-					</a>
+						class="app-brand-text demo sidenav-text font-weight-normal ml-2">SafeFood</a>
 				</div>
 
 				<div class="sidenav-divider mt-0"></div>
@@ -185,34 +180,9 @@ function del(eno) {
 						class="app-brand-text demo font-weight-normal ml-2">SafeFood</span>
 					</a>
 
-					<!-- Sidenav toggle (see /resources/assets/css/demo/demo.css) -->
-					<div
-						class="layout-sidenav-toggle navbar-nav d-lg-none align-items-lg-center mr-auto">
-						<a class="nav-item nav-link px-0 mr-lg-4"
-							href="javascript:void(0)"> <i
-							class="ion ion-md-menu text-large align-middle"></i>
-						</a>
-					</div>
-
-					<button class="navbar-toggler" type="button" data-toggle="collapse"
-						data-target="#layout-navbar-collapse">
-						<span class="navbar-toggler-icon"></span>
-					</button>
-
 					<div class="navbar-collapse collapse" id="layout-navbar-collapse">
 						<!-- Divider -->
 						<hr class="d-lg-none w-100 my-2">
-
-						<div class="navbar-nav align-items-lg-center">
-							<!-- Search -->
-							<label class="nav-item navbar-text navbar-search-box p-0 active">
-								<i class="ion ion-ios-search navbar-icon align-middle"></i> <span
-								class="navbar-search-input pl-2"> <input type="text"
-									class="form-control navbar-text mx-2" placeholder="Search..."
-									style="width: 200px">
-							</span>
-							</label>
-						</div>
 
 						<div class="navbar-nav align-items-lg-center ml-auto">
 							<!-- Divider -->

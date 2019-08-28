@@ -11,7 +11,7 @@
 	</appender>
 	
 	<!-- Application Loggers -->
-	<logger name="com.edu.ssafy">
+	<logger name="com.edu.safefood">
 		<level value="info" />
 	</logger>
 	

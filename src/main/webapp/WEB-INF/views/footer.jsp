@@ -36,11 +36,11 @@
 			<hr style="margin-bottom: 10px">
 			<ul class="list-unstyled">
 				<li><i class="glyphicon glyphicon-map-marker"
-					style="color: #00D8FF;"></i> (SSAFY)서울시 강남구 테헤란로 멀티스퀘어</li>
+					style="color: #00D8FF;"></i> 서울시 서대문구</li>
 				<li><i class="glyphicon glyphicon-earphone"
-					style="color: #00D8FF;"></i> 1544-9011</li>
+					style="color: #00D8FF;"></i> 1544-1544</li>
 				<li><i class="glyphicon glyphicon-envelope"
-					style="color: #00D8FF;"> admin2@ssafy.com</i></li>
+					style="color: #00D8FF;"> tdm1223@naver.com</i></li>
 			</ul>
 		</div>
 	</div>

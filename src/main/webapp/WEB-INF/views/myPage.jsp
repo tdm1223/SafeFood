@@ -102,13 +102,8 @@
 
 				<!-- Brand demo (see /resources/assets/css/demo/demo.css) -->
 				<div class="app-brand demo">
-					<a href="/index"><img alt="" src="/resources/img/logo.png"
-						width="50px"></a> <a href="/index"
-						class="app-brand-text demo sidenav-text font-weight-normal ml-2">SafeFood</a>
 					<a href="/index"
-						class="layout-sidenav-toggle sidenav-link text-large ml-auto">
-						<i class="ion ion-md-menu align-middle"></i>
-					</a>
+						class="app-brand-text demo sidenav-text font-weight-normal ml-2">SafeFood</a>
 				</div>
 
 				<div class="sidenav-divider mt-0"></div>
@@ -179,13 +174,8 @@
 
 					<!-- Brand demo (see /resources/assets/css/demo/demo.css) -->
 					<div class="app-brand demo">
-						<a href="/index"><img alt="" src="/resources/img/logo.png"
-							width="50px"></a> <a href="/index"
-							class="app-brand-text demo sidenav-text font-weight-normal ml-2">SafeFood</a>
 						<a href="/index"
-							class="layout-sidenav-toggle sidenav-link text-large ml-auto">
-							<i class="ion ion-md-menu align-middle"></i>
-						</a>
+							class="app-brand-text demo sidenav-text font-weight-normal ml-2">SafeFood</a>
 					</div>
 
 					<!-- Sidenav toggle (see /resources/assets/css/demo/demo.css) -->
@@ -205,17 +195,6 @@
 					<div class="navbar-collapse collapse" id="layout-navbar-collapse">
 						<!-- Divider -->
 						<hr class="d-lg-none w-100 my-2">
-
-						<div class="navbar-nav align-items-lg-center">
-							<!-- Search -->
-							<label class="nav-item navbar-text navbar-search-box p-0 active">
-								<i class="ion ion-ios-search navbar-icon align-middle"></i> <span
-								class="navbar-search-input pl-2"> <input type="text"
-									class="form-control navbar-text mx-2" placeholder="Search..."
-									style="width: 200px">
-							</span>
-							</label>
-						</div>
 
 						<div class="navbar-nav align-items-lg-center ml-auto">
 							<div class="demo-navbar-notifications nav-item dropdown mr-lg-3">

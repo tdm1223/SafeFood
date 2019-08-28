@@ -90,15 +90,6 @@
         <div class="d-flex col-sm-7 col-md-5 col-lg-12 px-0 px-xl-4 mx-auto">
           <div class="w-100">
 
-            <!-- Logo -->
-			<div class="d-flex justify-content-center align-items-center">
-				<div class="ui-w-60">
-					<div class="w-100 position-relative" style="padding-bottom: 54%">							
-						<img src="/resources/img/logo.png">
-					</div>
-				</div>
-			</div>
-            <!-- / Logo -->
 
             <h4 class="text-center text-lighter font-weight-normal mt-5 mb-0">Create an Account</h4>
 

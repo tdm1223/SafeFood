@@ -5,15 +5,15 @@
 <configuration>
 
   <typeAliases>
-  	<typeAlias alias="member" type="com.edu.ssafy.dto.Member"/>
-  	<typeAlias alias="food" type="com.edu.ssafy.dto.Food"/>
-  	<typeAlias alias="eat" type="com.edu.ssafy.dto.Eat"/>
-  	<typeAlias alias="qna" type="com.edu.ssafy.dto.QnA"/>
-  	<typeAlias alias="reply" type="com.edu.ssafy.dto.Reply"/>
-  	<typeAlias alias="categorize" type="com.edu.ssafy.dto.Categorize"/>
-  	<typeAlias alias="allergy" type="com.edu.ssafy.dto.Allergy"/>
-  	<typeAlias alias="dashboard" type="com.edu.ssafy.dto.Dashboard"/>
-    <typeAlias alias="cache" type="com.edu.ssafy.dto.Cache"/>
+  	<typeAlias alias="member" type="com.edu.safefood.dto.Member"/>
+  	<typeAlias alias="food" type="com.edu.safefood.dto.Food"/>
+  	<typeAlias alias="eat" type="com.edu.safefood.dto.Eat"/>
+  	<typeAlias alias="qna" type="com.edu.safefood.dto.QnA"/>
+  	<typeAlias alias="reply" type="com.edu.safefood.dto.Reply"/>
+  	<typeAlias alias="categorize" type="com.edu.safefood.dto.Categorize"/>
+  	<typeAlias alias="allergy" type="com.edu.safefood.dto.Allergy"/>
+  	<typeAlias alias="dashboard" type="com.edu.safefood.dto.Dashboard"/>
+    <typeAlias alias="cache" type="com.edu.safefood.dto.Cache"/>
   </typeAliases>
 
 </configuration>
