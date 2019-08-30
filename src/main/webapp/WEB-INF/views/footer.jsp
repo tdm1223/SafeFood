@@ -4,46 +4,23 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<script type="text/javascript" src="/resources/js/jquery-3.3.1.js"></script>
-<script src="/resources/js/bootstrap.min.js"></script>
-<link href="/resources/css/bootstrap.min.css" rel="stylesheet">
-<style type="text/css">
-#footer {
-	background-color: #fafafa;
-	padding-left: 10%;
-	padding-top: 1%;
-	padding-bottom: 1%
-}
-
-#footer li {
-	height: 30px;
-}
-
-#copyright {
-	background-color: #f5f5f5;
-	padding-top: 25px;
-	padding-bottom: 25px;
-	margin: 0;
-	text-align: center;
-	color: #999999;
-}
-</style>
+<title>Insert title here</title>
 </head>
 <body>
-	<div class="col-md-12" id="footer">
-		<div class="col-md-offset-2 col-md-4">
-			<h3>Find Us</h3>
-			<hr style="margin-bottom: 10px">
-			<ul class="list-unstyled">
-				<li><i class="glyphicon glyphicon-map-marker"
-					style="color: #00D8FF;"></i> 서울시 서대문구</li>
-				<li><i class="glyphicon glyphicon-earphone"
-					style="color: #00D8FF;"></i> 1544-1544</li>
-				<li><i class="glyphicon glyphicon-envelope"
-					style="color: #00D8FF;"> tdm1223@naver.com</i></li>
-			</ul>
+	<nav class="layout-footer footer bg-footer-theme">
+		<div
+			class="container-fluid d-flex flex-wrap justify-content-between text-center container-p-x pb-3">
+			<div class="pt-3">
+				<span class="footer-text font-weight-bolder">SafeFood</span>
+			</div>
+			<div>
+				<a href="javascript:void(0)" class="footer-link pt-3">About Us</a> <a
+					href="/qna/list" class="footer-link pt-3 ml-4">Help</a> <a
+					href="javascript:void(0)" class="footer-link pt-3 ml-4">Contact</a>
+				<a href="javascript:void(0)" class="footer-link pt-3 ml-4">Terms
+					&amp; Conditions</a>
+			</div>
 		</div>
-	</div>
-	<div class="col-md-12" id="copyright">Copyright by SSAFY. All rights reserved.</div>
+	</nav>
 </body>
 </html>

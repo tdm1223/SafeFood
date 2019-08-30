@@ -287,16 +287,12 @@
 					<!-- Content -->
 					<div class="container-fluid flex-grow-1 container-p-y">
 
-						<h4
-							class="d-flex flex-wrap justify-content-between align-items-center w-100 font-weight-bold pt-2 mb-4">
-							<div class="col-12 col-md px-0 pb-2">상품 정보</div>
-						</h4>
+						<h4 class="font-weight-bold py-3 mb-4">상품 정보</h4>
 						<!--  검색창 -->
 						<div style="background-color: #000000; margin: auto"
 							align="center">
 							<div class="container-fluid">
 								<form class="form-inline" id="frm">
-									<input type="hidden" id="code" value='code' />
 									<div class="form-group">
 										<label style="color: white;">검색 조건</label> <select
 											class="form-control"
@@ -332,7 +328,6 @@
 							<c:forEach items="${list}" var="content">
 								<div class="col-sm-6 col-xl-4">
 									<div class="card mb-4">
-
 										<div class="w-100">
 											<a href="detail?code=${content.code }"
 												class="card-img-top d-block ui-rect-60 ui-bg-cover"
@@ -372,13 +367,8 @@
 														<span class="ion ion-md-heart"></span> 찜
 													</button>
 												</div>
-												<%-- 												<div class="text-muted small">
-													<i class="ion ion-md-time text-primary"></i>
-													${content.makerName }
-												</div> --%>
 											</div>
 										</div>
-
 									</div>
 								</div>
 							</c:forEach>
@@ -430,21 +420,7 @@
 					<!-- / Content -->
 
 					<!-- Layout footer -->
-					<nav class="layout-footer footer bg-footer-theme">
-						<div
-							class="container-fluid d-flex flex-wrap justify-content-between text-center container-p-x pb-3">
-							<div class="pt-3">
-								<span class="footer-text font-weight-bolder">SafeFood</span>
-							</div>
-							<div>
-								<a href="javascript:void(0)" class="footer-link pt-3">About
-									Us</a> <a href="/qna/list" class="footer-link pt-3 ml-4">Help</a> <a
-									href="javascript:void(0)" class="footer-link pt-3 ml-4">Contact</a>
-								<a href="javascript:void(0)" class="footer-link pt-3 ml-4">Terms
-									&amp; Conditions</a>
-							</div>
-						</div>
-					</nav>
+					<jsp:include page="footer.jsp"></jsp:include>
 					<!-- / Layout footer -->
 
 				</div>
