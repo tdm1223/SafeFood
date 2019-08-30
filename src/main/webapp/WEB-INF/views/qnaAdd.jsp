@@ -3,7 +3,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 
-<html lang="en" class="default-style">
+<html lang="ko" class="default-style">
 
 <head>
 <title>QnA 추가</title>
@@ -57,16 +57,6 @@
 
 <script src="/resources/assets/vendor/js/material-ripple.js"></script>
 <script src="/resources/assets/vendor/js/layout-helpers.js"></script>
-
-<!-- Theme settings -->
-<!-- This file MUST be included after core stylesheets and layout-helpers.js in the <head> section -->
-<script src="/resources/assets/vendor/js/theme-settings.js"></script>
-<script>
-	window.themeSettings = new ThemeSettings({
-		cssPath : '/resources/assets/vendor/css/rtl/',
-		themesPath : '/resources/assets/vendor/css/rtl/'
-	});
-</script>
 
 <!-- Core scripts -->
 <script src="/resources/assets/vendor/js/pace.js"></script>
@@ -167,46 +157,9 @@
 
 			<!-- Layout container -->
 			<div class="layout-container">
-				<!-- Layout navbar -->
-				<nav
-					class="layout-navbar navbar navbar-expand-lg align-items-lg-center bg-white container-p-x"
-					id="layout-navbar">
-
-					<!-- Brand demo (see /resources/assets/css/demo/demo.css) -->
-					<a href="/index"
-						class="navbar-brand app-brand demo d-lg-none py-0 mr-4"> <span
-						class="app-brand-text demo font-weight-normal ml-2">SafeFood</span>
-					</a>
-
-					<div class="navbar-collapse collapse" id="layout-navbar-collapse">
-						<!-- Divider -->
-						<hr class="d-lg-none w-100 my-2">
-
-						<div class="navbar-nav align-items-lg-center ml-auto">
-							<!-- Divider -->
-							<div class="demo-navbar-user nav-item dropdown">
-								<a class="nav-link dropdown-toggle" href="#"
-									data-toggle="dropdown"> <span
-									class="d-inline-flex flex-lg-row-reverse align-items-center align-middle
-									ion ion-ios-person">
-										<span class="px-1 mr-lg-2 ml-2 ml-lg-0">${sessionScope.id }</span>
-								</span>
-								</a>
-								<div class="dropdown-menu dropdown-menu-right">
-									<a href="/member/mypage" class="dropdown-item"> <i
-										class="ion ion-md-settings text-lightest"></i> &nbsp; Account
-										settings
-									</a>
-									<div class="dropdown-divider"></div>
-									<a href="/logout" class="dropdown-item"> <i
-										class="ion ion-ios-log-out text-danger"></i> &nbsp; Log Out
-									</a>
-								</div>
-							</div>
-						</div>
-					</div>
-				</nav>
-				<!-- / Layout navbar -->
+				<!-- Layout header -->
+				<jsp:include page="header.jsp"></jsp:include>
+				<!-- / Layout header -->
 
 				<!-- Layout content -->
 				<div class="container-fluid flex-grow-1 container-p-y">

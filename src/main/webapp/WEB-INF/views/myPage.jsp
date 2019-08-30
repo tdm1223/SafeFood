@@ -4,7 +4,7 @@
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 <!DOCTYPE html>
 
-<html lang="en" class="default-style">
+<html lang="ko" class="default-style">
 
 <head>
 <title>마이페이지 - SafeFood</title>
@@ -58,16 +58,6 @@
 
 <script src="/resources/assets/vendor/js/material-ripple.js"></script>
 <script src="/resources/assets/vendor/js/layout-helpers.js"></script>
-
-<!-- Theme settings -->
-<!-- This file MUST be included after core stylesheets and layout-helpers.js in the <head> section -->
-<script src="/resources/assets/vendor/js/theme-settings.js"></script>
-<script>
-	window.themeSettings = new ThemeSettings({
-		cssPath : '/resources/assets/vendor/css/rtl/',
-		themesPath : '/resources/assets/vendor/css/rtl/'
-	});
-</script>
 
 <!-- Core scripts -->
 <script src="/resources/assets/vendor/js/pace.js"></script>
@@ -167,122 +157,9 @@
 
 			<!-- Layout container -->
 			<div class="layout-container">
-				<!-- Layout navbar -->
-				<nav
-					class="layout-navbar navbar navbar-expand-lg align-items-lg-center bg-white container-p-x"
-					id="layout-navbar">
-
-					<!-- Brand demo (see /resources/assets/css/demo/demo.css) -->
-					<div class="app-brand demo">
-						<a href="/index"
-							class="app-brand-text demo sidenav-text font-weight-normal ml-2">SafeFood</a>
-					</div>
-
-					<!-- Sidenav toggle (see /resources/assets/css/demo/demo.css) -->
-					<div
-						class="layout-sidenav-toggle navbar-nav d-lg-none align-items-lg-center mr-auto">
-						<a class="nav-item nav-link px-0 mr-lg-4"
-							href="javascript:void(0)"> <i
-							class="ion ion-md-menu text-large align-middle"></i>
-						</a>
-					</div>
-
-					<button class="navbar-toggler" type="button" data-toggle="collapse"
-						data-target="#layout-navbar-collapse">
-						<span class="navbar-toggler-icon"></span>
-					</button>
-
-					<div class="navbar-collapse collapse" id="layout-navbar-collapse">
-						<!-- Divider -->
-						<hr class="d-lg-none w-100 my-2">
-
-						<div class="navbar-nav align-items-lg-center ml-auto">
-							<div class="demo-navbar-notifications nav-item dropdown mr-lg-3">
-								<a class="nav-link dropdown-toggle hide-arrow" href="#"
-									data-toggle="dropdown"> <i
-									class="ion ion-md-notifications-outline navbar-icon align-middle"></i>
-									<span class="badge badge-primary badge-dot indicator"></span> <span
-									class="d-lg-none align-middle">&nbsp; Notifications</span>
-								</a>
-								<div class="dropdown-menu dropdown-menu-right">
-									<div
-										class="bg-primary text-center text-white font-weight-bold p-3">
-										4 New Notifications</div>
-									<div class="list-group list-group-flush">
-										<a href="javascript:void(0)"
-											class="list-group-item list-group-item-action media d-flex align-items-center">
-											<div
-												class="ui-icon ui-icon-sm ion ion-md-home bg-secondary border-0 text-white"></div>
-											<div class="media-body line-height-condenced ml-3">
-												<div class="text-body">Login from 192.168.1.1</div>
-												<div class="text-light small mt-1">Aliquam ex eros,
-													imperdiet vulputate hendrerit et.</div>
-												<div class="text-light small mt-1">12h ago</div>
-											</div>
-										</a> <a href="javascript:void(0)"
-											class="list-group-item list-group-item-action media d-flex align-items-center">
-											<div
-												class="ui-icon ui-icon-sm ion ion-md-person-add bg-info border-0 text-white"></div>
-											<div class="media-body line-height-condenced ml-3">
-												<div class="text-body">
-													You have <strong>4</strong> new followers
-												</div>
-												<div class="text-light small mt-1">Phasellus nunc
-													nisl, posuere cursus pretium nec, dictum vehicula tellus.</div>
-											</div>
-										</a> <a href="javascript:void(0)"
-											class="list-group-item list-group-item-action media d-flex align-items-center">
-											<div
-												class="ui-icon ui-icon-sm ion ion-md-power bg-danger border-0 text-white"></div>
-											<div class="media-body line-height-condenced ml-3">
-												<div class="text-body">Server restarted</div>
-												<div class="text-light small mt-1">19h ago</div>
-											</div>
-										</a> <a href="javascript:void(0)"
-											class="list-group-item list-group-item-action media d-flex align-items-center">
-											<div
-												class="ui-icon ui-icon-sm ion ion-md-warning bg-warning border-0 text-body"></div>
-											<div class="media-body line-height-condenced ml-3">
-												<div class="text-body">99% server load</div>
-												<div class="text-light small mt-1">Etiam nec fringilla
-													magna. Donec mi metus.</div>
-												<div class="text-light small mt-1">20h ago</div>
-											</div>
-										</a>
-									</div>
-
-									<a href="javascript:void(0)"
-										class="d-block text-center text-light small p-2 my-1">Show
-										all notifications</a>
-								</div>
-							</div>
-
-							<!-- Divider -->
-							<div
-								class="nav-item d-none d-lg-block text-big font-weight-light line-height-1 opacity-25 mr-3 ml-1">|</div>
-
-							<div class="demo-navbar-user nav-item dropdown">
-								<a class="nav-link dropdown-toggle" href="#"
-									data-toggle="dropdown"> <span
-									class="d-inline-flex flex-lg-row-reverse align-items-center align-middle">
-										<img src="/resources/assets/img/avatars/1.png" alt="profile"
-										class="d-block ui-w-30 rounded-circle"> <span
-										class="px-1 mr-lg-2 ml-2 ml-lg-0">${sessionScope.id }</span>
-								</span>
-								</a>
-								<div class="dropdown-menu dropdown-menu-right">
-									<a href="/member/mypage" class="dropdown-item"><i
-										class="ion ion-md-settings text-lightest"></i> &nbsp; Account
-										settings</a>
-									<div class="dropdown-divider"></div>
-									<a href="/logout" class="dropdown-item"><i
-										class="ion ion-ios-log-out text-danger"></i> &nbsp; Log Out</a>
-								</div>
-							</div>
-						</div>
-					</div>
-				</nav>
-				<!-- / Layout navbar -->
+				<!-- Layout header -->
+				<jsp:include page="header.jsp"></jsp:include>
+				<!-- / Layout header -->
 
 				<!-- Layout content -->
 				<div class="layout-content">
@@ -300,31 +177,13 @@
 											data-toggle="list" href="#account-general">General</a> <a
 											class="list-group-item list-group-item-action"
 											data-toggle="list" href="#account-change-password">Change
-											password</a> <a class="list-group-item list-group-item-action"
-											data-toggle="list" href="#account-notifications">Notifications</a>
+											password</a> 
 									</div>
 								</div>
 								<div class="col-md-9">
 
 									<div class="tab-content">
 										<div class="tab-pane fade show active" id="account-general">
-
-											<div class="card-body media align-items-center">
-												<img src="/resources/assets/img/avatars/5-small.png" alt=""
-													class="d-block ui-w-80">
-												<div class="media-body ml-4">
-													<label class="btn btn-outline-primary"> Upload new
-														photo <input type="file"
-														class="account-settings-fileinput">
-													</label> &nbsp;
-													<button type="button" class="btn btn-default md-btn-flat">Reset</button>
-
-													<div class="text-light small mt-1">Allowed JPG, GIF
-														or PNG. Max size of 800K</div>
-												</div>
-											</div>
-											<hr class="border-light m-0">
-
 											<div class="card-body">
 												<div class="form-group">
 													<label class="form-label">ID</label> <input type="text"
@@ -393,72 +252,6 @@
 													<label class="form-label">Repeat new password</label> <input
 														type="password" class="form-control">
 												</div>
-
-											</div>
-										</div>
-										<div class="tab-pane fade" id="account-notifications">
-											<div class="card-body pb-2">
-
-												<h6 class="mb-4">Activity</h6>
-
-												<div class="form-group">
-													<label class="switcher"> <input type="checkbox"
-														class="switcher-input" checked> <span
-														class="switcher-indicator"> <span
-															class="switcher-yes"></span> <span class="switcher-no"></span>
-													</span> <span class="switcher-label">Email me when someone
-															comments on my article</span>
-													</label>
-												</div>
-												<div class="form-group">
-													<label class="switcher"> <input type="checkbox"
-														class="switcher-input" checked> <span
-														class="switcher-indicator"> <span
-															class="switcher-yes"></span> <span class="switcher-no"></span>
-													</span> <span class="switcher-label">Email me when someone
-															answers on my forum thread</span>
-													</label>
-												</div>
-												<div class="form-group">
-													<label class="switcher"> <input type="checkbox"
-														class="switcher-input"> <span
-														class="switcher-indicator"> <span
-															class="switcher-yes"></span> <span class="switcher-no"></span>
-													</span> <span class="switcher-label">Email me when someone
-															follows me</span>
-													</label>
-												</div>
-											</div>
-											<hr class="border-light m-0">
-											<div class="card-body pb-2">
-
-												<h6 class="mb-4">Application</h6>
-
-												<div class="form-group">
-													<label class="switcher"> <input type="checkbox"
-														class="switcher-input" checked> <span
-														class="switcher-indicator"> <span
-															class="switcher-yes"></span> <span class="switcher-no"></span>
-													</span> <span class="switcher-label">News and announcements</span>
-													</label>
-												</div>
-												<div class="form-group">
-													<label class="switcher"> <input type="checkbox"
-														class="switcher-input"> <span
-														class="switcher-indicator"> <span
-															class="switcher-yes"></span> <span class="switcher-no"></span>
-													</span> <span class="switcher-label">Weekly product updates</span>
-													</label>
-												</div>
-												<div class="form-group">
-													<label class="switcher"> <input type="checkbox"
-														class="switcher-input" checked> <span
-														class="switcher-indicator"> <span
-															class="switcher-yes"></span> <span class="switcher-no"></span>
-													</span> <span class="switcher-label">Weekly blog digest</span>
-													</label>
-												</div>
-
 											</div>
 										</div>
 									</div>
