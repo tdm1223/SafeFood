@@ -38,7 +38,7 @@ public class FoodController {
 	@Autowired
 	MemberService mser;
 
-	@RequestMapping("/info")
+	@RequestMapping("/foodInfo")
 	public ModelAndView info(ModelAndView m, HttpServletRequest req, Criteria cri, HttpSession ss) {
 		String searchCondition = req.getParameter("searchCondition");
 		String searchWord = req.getParameter("searchWord");

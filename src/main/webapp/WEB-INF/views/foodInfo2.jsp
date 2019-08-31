@@ -46,48 +46,6 @@
 				+ "&searchWord=" + searchWord + "&sortType=" + sortType;
 	}
 	
-	var id = '${sessionScope.id}';
-	var quan = 1;
-	var code;
-	
-	function eatFood(code) {
-		$.ajax({
-			type : 'post',
-			url : '/member/addFood',
-			contentType : 'application/json',
-			dataType : 'json',
-			data : JSON.stringify({
-			id : id,
-			quan : quan,
-			code : code
-		}),
-		success : function(result) {
-			alert("추가 성공");
-		},
-		error : function(result) {
-			alert("에러 발생");
-			}
-		}); 
-	}
-	
-	function zzimFood(code) {
-		$.ajax({
-			type : 'post',
-			url : '/member/addZzim',
-			contentType : 'application/json',
-			dataType : 'json',
-			data : JSON.stringify({
-			id : id,
-			code : code
-		}),
-		success : function(result) {
-			alert("추가 성공");
-		},
-		error : function(result) {
-			alert("에러 발생");
-			}
-		}); 
-	}
 </script>
 <meta charset="utf-8">
 <meta http-equiv="x-ua-compatible" content="IE=edge,chrome=1">
@@ -126,7 +84,7 @@
 	href="/resources/assets/vendor/css/rtl/colors.css"
 	class="theme-settings-colors-css">
 <link rel="stylesheet" href="/resources/assets/vendor/css/rtl/uikit.css">
-<link rel="stylesheet" href="/resources/assets/css/demo.css">
+<link rel="stylesheet" href="/resources/css/demo.css">
 
 
 <script src="/resources/assets/vendor/js/material-ripple.js"></script>
@@ -178,7 +136,7 @@
 					<li class="sidenav-item"><a href="/index" class="sidenav-link"><i
 							class="sidenav-icon ion ion-ios-home "></i> Dashboard</a></li>
 
-					<li class="sidenav-item"><a href="javascript:void(0)"
+					<li class="sidenav-item"><a href="#"
 						class="sidenav-link sidenav-toggle"><i
 							class="sidenav-icon ion ion-md-search"></i> 맛집 검색 </a>
 						<ul class="sidenav-menu">
@@ -194,7 +152,7 @@
 							</a></li>
 						</ul></li>
 
-					<li class="sidenav-item open"><a href="javascript:void(0)"
+					<li class="sidenav-item open"><a href="#"
 						class="sidenav-link sidenav-toggle"><i
 							class="sidenav-icon ion ion-ios-pricetag"></i> 상품정보 </a>
 						<ul class="sidenav-menu">
@@ -240,43 +198,10 @@
 
 					<!-- Content -->
 					<div class="container-fluid flex-grow-1 container-p-y">
-
 						<h4 class="font-weight-bold py-3 mb-4">상품 정보</h4>
-						<!--  검색창 -->
-						<div style="background-color: #000000; margin: auto"
-							align="center">
-							<div class="container-fluid">
-								<form class="form-inline" id="frm">
-									<div class="form-group">
-										<label style="color: white;">검색 조건</label> <select
-											class="form-control"
-											style="background-color: #8C8C8C; color: white; font-weight: bold; margin-left: 10px"
-											id="searchCondition">
-											<option value="">선택</option>
-											<option value="name">상품명</option>
-											<option value="maker">제조사</option>
-											<option value="material">원재료</option>
-										</select>
-									</div>
-									<div class="form-group ml-1" style="margin-left: 20px">
-										<label style="color: white;">검색 단어</label> <input type="text"
-											class="form-control" id="searchWord"
-											style="background-color: #8C8C8C; margin-left: 10px">
-										<button type="button" class="btn btn-info" id="searchBtn"
-											style="margin-left: 10px" onclick="search()">검색</button>
-									</div>
-									<div class="form-group ml-1" style="margin-left: 20px">
-										<select name="sortType" id="bs-multiselect-1"
-											onchange="sort()">
-											<option value="">선택</option>
-											<option value="1">이름</option>
-											<option value="2">열량</option>
-										</select>
-									</div>
-								</form>
-							</div>
-						</div>
-						<!-- /검색창 -->
+						<!-- product search -->
+						<jsp:include page="searchProduct.jsp"></jsp:include>
+						<!-- / product search -->
 
 						<div class="row">
 							<c:forEach items="${list}" var="content">

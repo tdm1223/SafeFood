@@ -45,7 +45,7 @@
 	href="/resources/assets/vendor/css/rtl/colors.css"
 	class="theme-settings-colors-css">
 <link rel="stylesheet" href="/resources/assets/vendor/css/rtl/uikit.css">
-<link rel="stylesheet" href="/resources/assets/css/demo.css">
+<link rel="stylesheet" href="/resources/css/demo.css">
 
 <!-- Load polyfills -->
 <script src="/resources/assets/vendor/js/polyfills.js"></script>
@@ -103,7 +103,7 @@
 					<li class="sidenav-item"><a href="/index" class="sidenav-link"><i
 							class="sidenav-icon ion ion-ios-home "></i> Dashboard </a></li>
 
-					<li class="sidenav-item"><a href="javascript:void(0)"
+					<li class="sidenav-item"><a href="#"
 						class="sidenav-link sidenav-toggle"><i
 							class="sidenav-icon ion ion-md-search"></i> 맛집 검색 </a>
 						<ul class="sidenav-menu">
@@ -119,7 +119,7 @@
 							</a></li>
 						</ul></li>
 
-					<li class="sidenav-item"><a href="javascript:void(0)"
+					<li class="sidenav-item"><a href="#"
 						class="sidenav-link sidenav-toggle"><i
 							class="sidenav-icon ion ion-ios-pricetag"></i> 상품정보 </a>
 						<ul class="sidenav-menu">
