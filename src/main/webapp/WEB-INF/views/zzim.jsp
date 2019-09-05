@@ -68,7 +68,6 @@ function eatFood(code) {
 <link rel="stylesheet"
 	href="/resources/assets/vendor/css/rtl/colors.css"
 	class="theme-settings-colors-css">
-<link rel="stylesheet" href="/resources/assets/vendor/css/rtl/uikit.css">
 <link rel="stylesheet" href="/resources/css/demo.css">
 
 <!-- Load polyfills -->
@@ -256,7 +255,6 @@ function eatFood(code) {
 
 	<!-- Demo -->
 	<script src="/resources/assets/js/demo.js"></script>
-	<script src="/resources/assets/js/pages_e-commerce_order-list.js"></script>
 </body>
 
 </html>

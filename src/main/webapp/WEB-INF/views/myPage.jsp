@@ -45,7 +45,6 @@
 <link rel="stylesheet"
 	href="/resources/assets/vendor/css/rtl/colors.css"
 	class="theme-settings-colors-css">
-<link rel="stylesheet" href="/resources/assets/vendor/css/rtl/uikit.css">
 <link rel="stylesheet" href="/resources/css/demo.css">
 
 <!-- Load polyfills -->
@@ -177,7 +176,7 @@
 											data-toggle="list" href="#account-general">General</a> <a
 											class="list-group-item list-group-item-action"
 											data-toggle="list" href="#account-change-password">Change
-											password</a> 
+											password</a>
 									</div>
 								</div>
 								<div class="col-md-9">
