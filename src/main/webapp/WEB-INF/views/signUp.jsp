@@ -44,6 +44,7 @@
 <link rel="stylesheet"
 	href="/resources/assets/vendor/css/rtl/colors.css"
 	class="theme-settings-colors-css">
+<link rel="stylesheet" href="/resources/assets/vendor/css/rtl/uikit.css">
 <link rel="stylesheet" href="/resourcescss/demo.css">
 
 <!-- Load polyfills -->
@@ -80,7 +81,7 @@
 			<!-- Do not display the container on extra small, small and medium screens -->
 			<div
 				class="d-none d-lg-flex col-lg-8 align-items-center ui-bg-cover ui-bg-overlay-container p-5"
-				style="background-image: url('/resources/img/background.jpg');">
+				style="background-image: url('/resources/assets/img/bg/21.jpg');">
 				<div class="ui-bg-overlay bg-dark opacity-50"></div>
 
 				<!-- Text -->

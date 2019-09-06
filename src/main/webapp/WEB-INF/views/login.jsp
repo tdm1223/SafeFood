@@ -40,6 +40,8 @@
 <link rel="stylesheet"
 	href="/resources/assets/vendor/css/rtl/colors.css"
 	class="theme-settings-colors-css">
+<link rel="stylesheet" href="/resources/assets/vendor/css/rtl/uikit.css">
+
 
 <!-- Core scripts -->
 <script
@@ -56,7 +58,7 @@
 			<!-- Side container -->
 			<div
 				class="d-none d-lg-flex col-lg-8 align-items-center ui-bg-cover ui-bg-overlay-container p-5"
-				style="background-image: url('/resources/img/background.jpg');">
+				style="background-image: url('/resources/assets/img/bg/21.jpg');">
 				<div class="ui-bg-overlay bg-dark opacity-50"></div>
 				<div class="w-100 text-white px-5">
 					<h1 class="display-2 font-weight-bolder mb-3">SAFE FOOD</h1>
