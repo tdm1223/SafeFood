@@ -1,7 +1,9 @@
 # Safe Food
 > 안전 먹거리 프로젝트
 
-![main](https://user-images.githubusercontent.com/21440957/64118284-4ec6fa00-cdd2-11e9-8e84-b0b7f172fb2f.PNG)
+## 시연 영상
+
+[![main](https://user-images.githubusercontent.com/21440957/64118284-4ec6fa00-cdd2-11e9-8e84-b0b7f172fb2f.PNG)](https://youtu.be/cwlsGjXlVq0)
 
 ## 기획 배경
 - 사용자의 식습관 정보에 기반한 식품 추천 
