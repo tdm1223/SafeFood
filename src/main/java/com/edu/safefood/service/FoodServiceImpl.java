@@ -82,7 +82,6 @@ public class FoodServiceImpl implements FoodService {
 				}
 				return list;
 			}
-
 		} catch (Exception e) {
 			e.printStackTrace();
 			return null;
@@ -91,7 +90,6 @@ public class FoodServiceImpl implements FoodService {
 
 	@Override
 	public Food getFood(int code) {
-
 		try {
 			return dao.getFood(code);
 		} catch (Exception e) {
@@ -104,7 +102,6 @@ public class FoodServiceImpl implements FoodService {
 	public int totalCount() {
 		try {
 			return dao.totalCount();
-
 		} catch (Exception e) {
 			return 0;
 		}
@@ -114,7 +111,6 @@ public class FoodServiceImpl implements FoodService {
 	public int searchTotalCount(int type, String searchWord) {
 		try {
 			return dao.searchTotalCount(type, searchWord);
-
 		} catch (Exception e) {
 			return 0;
 		}

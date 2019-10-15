@@ -38,6 +38,28 @@ public class FoodController {
 	@Autowired
 	MemberService mser;
 
+	public int getSortType(String sortType) {
+		if (sortType == null) {
+			return 0;
+		} else if (sortType.equals("1")) {
+			return 1;
+		} else if (sortType.equals("2")) {
+			return 2;
+		}
+		return -1;
+	}
+
+	public int getSearchCondition(String searchCondition) {
+		if (searchCondition.equals("name")) {
+			return 1;
+		} else if (searchCondition.equals("maker")) {
+			return 2;
+		} else if (searchCondition.equals("material")) {
+			return 3;
+		}
+		return 0;
+	}
+
 	@RequestMapping("/foodInfo")
 	public ModelAndView info(ModelAndView m, HttpServletRequest req, Criteria cri, HttpSession ss) {
 		String searchCondition = req.getParameter("searchCondition");
@@ -49,14 +71,8 @@ public class FoodController {
 		PageMaker pageMaker = new PageMaker();
 		pageMaker.setCri(cri);
 
-		int sort = 0;
-		if (sortType == null) {
-			sort = 0;
-		} else if (sortType.equals("1")) {
-			sort = 1;
-		} else if (sortType.equals("2")) {
-			sort = 2;
-		}
+		int sort = getSortType(sortType);
+
 		if (searchCondition == null || searchCondition.equals("") || searchWord == null || searchWord.equals("")) {
 			if (sort == 0) {
 				req.setAttribute("list", ser.getList(cri, aller));
@@ -68,14 +84,7 @@ public class FoodController {
 				pageMaker.setTotalCnt(ser.totalCount());
 			}
 		} else {
-			int type = 0;
-			if (searchCondition.equals("name")) {
-				type = 1;
-			} else if (searchCondition.equals("maker")) {
-				type = 2;
-			} else if (searchCondition.equals("material")) {
-				type = 3;
-			}
+			int type = getSearchCondition(searchCondition);
 
 			req.setAttribute("list", ser.search(type, searchWord, sort, cri, aller));
 			m.setViewName("foodInfo");
@@ -99,34 +108,21 @@ public class FoodController {
 		PageMaker pageMaker = new PageMaker();
 		pageMaker.setCri(cri);
 
-		int sort = 0;
-		if (sortType == null) {
-			sort = 0;
-		} else if (sortType.equals("1")) {
-			sort = 1;
-		} else if (sortType.equals("2")) {
-			sort = 2;
-		}
+		int sort = getSortType(sortType);
+
 		if (searchCondition == null || searchCondition.equals("") || searchWord == null || searchWord.equals("")) {
 			if (sort == 0) {
 				req.setAttribute("list", ser.getList(cri, aller));
-				m.setViewName("foodInfo2");
+				m.setViewName("foodImgInfo");
 			} else {
 				req.setAttribute("list", ser.search(0, searchWord, sort, cri, aller));
-				m.setViewName("foodInfo2");
+				m.setViewName("foodImgInfo");
 			}
 		} else {
-			int type = 0;
-			if (searchCondition.equals("name")) {
-				type = 1;
-			} else if (searchCondition.equals("maker")) {
-				type = 2;
-			} else if (searchCondition.equals("material")) {
-				type = 3;
-			}
+			int type = getSearchCondition(searchCondition);
 
 			req.setAttribute("list", ser.search(type, searchWord, sort, cri, aller));
-			m.setViewName("foodInfo2");
+			m.setViewName("foodImgInfo");
 			m.addObject("searchCondition", searchCondition);
 			m.addObject("searchWord", searchWord);
 
@@ -196,14 +192,7 @@ public class FoodController {
 			PageMaker pageMaker = new PageMaker();
 			pageMaker.setCri(cri);
 
-			int sort = 0;
-			if (sortType == null) {
-				sort = 0;
-			} else if (sortType.equals("1")) {
-				sort = 1;
-			} else if (sortType.equals("2")) {
-				sort = 2;
-			}
+			int sort = getSortType(sortType);
 
 			if (searchCondition == null || searchCondition.equals("") || searchWord == null || searchWord.equals("")) {
 				req.setAttribute("list", ser.getList(cri, aller));
@@ -211,14 +200,7 @@ public class FoodController {
 				model.addObject("pageMaker", pageMaker);
 
 			} else {
-				int type = 0;
-				if (searchCondition.equals("name")) {
-					type = 1;
-				} else if (searchCondition.equals("maker")) {
-					type = 2;
-				} else if (searchCondition.equals("material")) {
-					type = 3;
-				}
+				int type = getSearchCondition(searchCondition);
 
 				req.setAttribute("list", ser.search(type, searchWord, sort, cri, aller));
 				model.addObject("searchCondition", searchCondition);
@@ -248,14 +230,7 @@ public class FoodController {
 			PageMaker pageMaker = new PageMaker();
 			pageMaker.setCri(cri);
 
-			int sort = 0;
-			if (sortType == null) {
-				sort = 0;
-			} else if (sortType.equals("1")) {
-				sort = 1;
-			} else if (sortType.equals("2")) {
-				sort = 2;
-			}
+			int sort = getSortType(sortType);
 
 			if (searchCondition == null || searchCondition.equals("") || searchWord == null || searchWord.equals("")) {
 				req.setAttribute("list", ser.getList(cri, aller));
@@ -263,14 +238,7 @@ public class FoodController {
 				pageMaker.setTotalCnt(ser.totalCount());
 				model.addObject("pageMaker", pageMaker);
 			} else {
-				int type = 0;
-				if (searchCondition.equals("name")) {
-					type = 1;
-				} else if (searchCondition.equals("maker")) {
-					type = 2;
-				} else if (searchCondition.equals("material")) {
-					type = 3;
-				}
+				int type = getSearchCondition(searchCondition);
 
 				req.setAttribute("list", ser.search(type, searchWord, sort, cri, aller));
 				model.addObject("searchCondition", searchCondition);
@@ -284,7 +252,7 @@ public class FoodController {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		model.setViewName("foodInfo2");
+		model.setViewName("foodImgInfo");
 		return model;
 	}
 
