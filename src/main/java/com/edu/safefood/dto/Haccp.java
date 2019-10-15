@@ -16,7 +16,7 @@ public class Haccp {
 	private String capacity;
 	private String prdlstReportNo;
 	private String allergy;
-	private foodnutriment nutList;
+	private FoodNutriment nutList;
 	
 	public Haccp() {}
 	
@@ -42,11 +42,11 @@ public class Haccp {
 	} 
 	
 
-	public foodnutriment getNutList() {
+	public FoodNutriment getNutList() {
 		return nutList;
 	}
 
-	public void setNutList(foodnutriment nutList) {
+	public void setNutList(FoodNutriment nutList) {
 		this.nutList = nutList;
 	}
 

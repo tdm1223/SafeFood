@@ -4,6 +4,8 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
+import java.util.TreeSet;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
@@ -74,7 +76,6 @@ public class MemberController {
 		String id = (String) session.getAttribute("id");
 		Member m = memService.searchById(id);
 		List<Eat> temp = memService.getEatList(m.getId());
-
 		if (id != null) {
 			for (Food f : foodService.getList()) {
 				for (Eat e : temp) {
@@ -154,7 +155,7 @@ public class MemberController {
 		HashMap<String, Object> entity = new HashMap<>();
 
 		JsonParser paser = new JsonParser();
-		System.out.println(ss.getAttribute("id")+ "/ "+ss.getAttribute("update"));
+		System.out.println(ss.getAttribute("id") + "/ " + ss.getAttribute("update"));
 
 		String id = paser.parse(req).getAsJsonObject().get("id").toString().replace("\"", " ").trim();
 		String quan = paser.parse(req).getAsJsonObject().get("quan").toString().replace("\"", " ").trim();

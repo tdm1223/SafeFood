@@ -146,7 +146,6 @@ public class MemberServiceImpl implements MemberService {
 			total.setFattyacid(Math.round((total.getFattyacid() + d.getFattyacid()) * 100) / 100.0);
 			total.setTransfat(Math.round((total.getTransfat() + d.getTransfat()) * 100) / 100.0);
 		}
-
 		m.addObject("data", data);
 		m.addObject("total", total);
 		m.setViewName("index");
@@ -175,8 +174,8 @@ public class MemberServiceImpl implements MemberService {
 		if (tmp.size() == 0 || tmp == null) {
 			return null;
 		}
+		
 		List<String> aller = dao.searchById(id).getAllergy();
-
 		List<Food> ans = dao.updateRecommand(tmp);
 
 		if (aller == null) {
@@ -185,10 +184,7 @@ public class MemberServiceImpl implements MemberService {
 			for (Food f : ans) {
 				for (String allergy : aller) {
 					// 알레르기 포함하고있다면
-					if (f.getMaterial().contains(allergy)) {
-						f.setIsAllergy(true);
-					}
-					if (f.getAllergy().contains(allergy)) {
+					if (f.getMaterial().contains(allergy) || f.getAllergy().contains(allergy)) {
 						f.setIsAllergy(true);
 					}
 				}

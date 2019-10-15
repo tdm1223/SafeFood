@@ -45,11 +45,6 @@
 	href="/resources/assets/vendor/css/rtl/colors.css"
 	class="theme-settings-colors-css">
 <link rel="stylesheet" href="/resources/assets/vendor/css/rtl/uikit.css">
-<link rel="stylesheet" href="/resourcescss/demo.css">
-
-<!-- Load polyfills -->
-<script src="/resources/assets/vendor/js/polyfills.js"></script>
-<script>document['documentMode']===10&&document.write('<script src="https://polyfill.io/v3/polyfill.min.js?features=Intl.~locale.en"><\/script>')</script>
 
 <script src="/resources/assets/vendor/js/material-ripple.js"></script>
 <script src="/resources/assets/vendor/js/layout-helpers.js"></script>
@@ -73,35 +68,29 @@
 	</div>
 
 	<!-- Content -->
-
 	<div class="authentication-wrapper authentication-3">
 		<div class="authentication-inner">
-
 			<!-- Side container -->
-			<!-- Do not display the container on extra small, small and medium screens -->
 			<div
 				class="d-none d-lg-flex col-lg-8 align-items-center ui-bg-cover ui-bg-overlay-container p-5"
 				style="background-image: url('/resources/assets/img/background.jpg');">
 				<div class="ui-bg-overlay bg-dark opacity-50"></div>
-
-				<!-- Text -->
 				<div class="w-100 text-white px-5">
-					<h1 class="display-2 font-weight-bolder mb-4">
-						SAFE<br>FOOD
-					</h1>
-					<div class="text-large font-weight-light">건강한 삶을 위한 먹거리 프로젝트</div>
+					<h1 class="display-2 font-weight-bolder mb-3">SAFE FOOD</h1>
+					<h3>Project for Healthy Life</h3>
+					<div class="text-large font-weight-light">
+						● 알러지 식품 정보를 통해 안전한 식품을 확인해 보세요 !<br> ● 내 섭취목록으로 영양 정보를 체크하세요
+						!<br> ● 다양한 식품을 검색해보세요 !
+					</div>
 				</div>
-				<!-- /.Text -->
 			</div>
 			<!-- / Side container -->
 
 			<!-- Form container -->
 			<div class="d-flex col-lg-4 align-items-center bg-white p-5">
 				<!-- Inner container -->
-				<!-- Have to add `.d-flex` to control width via `.col-*` classes -->
 				<div class="d-flex col-sm-7 col-md-5 col-lg-12 px-0 px-xl-4 mx-auto">
 					<div class="w-100">
-
 
 						<h4 class="text-center text-lighter font-weight-normal mt-5 mb-0">Create
 							an Account</h4>
@@ -144,17 +133,12 @@
 								</c:forEach>
 							</div>
 							<button type="button" id="submitBtn"
-								class="btn btn-primary btn-block mt-4">Sign Up</button>
-							<div class="text-light small mt-4">
-								By clicking "Sign Up", you agree to our <a href="#">terms of
-									service and privacy policy</a>. We’ll occasionally send you account
-								related emails.
-							</div>
+								class="btn btn-primary btn-block mt-4">회원가입</button>
 						</form>
 						<!-- / Form -->
 
 						<div class="text-center text-muted">
-							Already have an account? <a href="login">Sign In</a>
+							이미 아이디가 있으신가요? <a href="login">로그인</a>
 						</div>
 
 					</div>
@@ -180,55 +164,55 @@
 	<script src="/resources/assets/js/demo.js"></script>
 
 	<script type="text/javascript">
-	var id;
-	var pwd;
-	var name;
-	var addr;
-	var phone;
-	var allergy = new Array();
+		var id;
+		var pwd;
+		var name;
+		var addr;
+		var phone;
+		var allergy = new Array();
 
-	$(function() {
-		$("#submitBtn").on('click', function(source) {
-			id = $("#id").val();
-			pwd = $("#pwd").val();
-			name = $("#name").val();
-			addr = $("#addr").val();
-			phone = $("#phone").val();
-			$('input:checkbox[name="allergy"]').each(function() {
-				if (this.checked == true) {
-					allergy.push(this.value);
+		$(function() {
+			$("#submitBtn").on('click', function(source) {
+				id = $("#id").val();
+				pwd = $("#pwd").val();
+				name = $("#name").val();
+				addr = $("#addr").val();
+				phone = $("#phone").val();
+				$('input:checkbox[name="allergy"]').each(function() {
+					if (this.checked == true) {
+						allergy.push(this.value);
+					}
+				});
+
+				if (id.length == 0) {
+					alert("회원아이디는 필수입력 항목입니다.");
+					return;
 				}
+
+				if (pwd.length == 0) {
+					alert("비밀번호는 필수입력 항목입니다.");
+					return;
+				}
+
+				if (pwd.length < 6) {
+					alert("비밀번호는 영문 숫자 포함 6자리 이상입니다.")
+					return;
+				}
+
+				if (name.length == 0) {
+					alert("회원이름은 필수입력 항목입니다.");
+					return;
+				}
+
+				if (phone.length == 0) {
+					alert("전화번호는 필수입력 항목입니다.");
+					return;
+				}
+
+				$("#form").submit();
 			});
-			
-			if(id.length == 0){
-				alert("회원아이디는 필수입력 항목입니다.");
-				return;
-			}
-			
-			if(pwd.length == 0){
-				alert("비밀번호는 필수입력 항목입니다.");
-				return;
-			}
-			
-			if(pwd.length < 6){
-				alert("비밀번호는 영문 숫자 포함 6자리 이상입니다.")
-				return;
-			}
-			
-			if(name.length == 0){
-				alert("회원이름은 필수입력 항목입니다.");
-				return;
-			}
-			
-			if(phone.length == 0){
-				alert("전화번호는 필수입력 항목입니다.");
-				return;
-			}
-			
-			$("#form").submit();
 		});
-	});
-</script>
+	</script>
 
 </body>
 

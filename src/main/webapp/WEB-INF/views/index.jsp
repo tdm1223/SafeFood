@@ -10,17 +10,19 @@
 <script type="text/javascript">
 	$(function() {
 		var list = new Array();
+		var months = new Array();
 		<c:forEach var="content" items="${data}">
 		list.push("${content.calory}");
+		months.push("${content.edate}");
 		</c:forEach>
-		list.reverse();
+
 		var chart1 = new Chart(document.getElementById('statistics-chart-1')
 				.getContext("2d"), {
 			type : 'line',
 			data : {
-				labels : [ '2019-05', '2019-04', '2019-03', '2019-02',
-						'2019-01', '2018-12', '2018-11', '2018-10', '2018-09',
-						'2018-08', '2018-07', '2018-06' ],
+				labels : [ months[0], months[1], months[2], months[3],
+						months[4], months[5], months[6], months[7], months[8],
+						months[9], months[10], months[11] ],
 				datasets : [
 						{
 							label : '${sessionScope.id}',

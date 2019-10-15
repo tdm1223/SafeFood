@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.edu.safefood.dto.Food;
 import com.edu.safefood.dto.Member;
 import com.edu.safefood.service.MemberService;
 
@@ -30,26 +31,23 @@ public class HomeController {
 	}
 
 	@RequestMapping("/index")
-	public ModelAndView index(ModelAndView m, HttpSession session)
-	{
-		String id = (String)session.getAttribute("id");
+	public ModelAndView index(ModelAndView m, HttpSession session) {
+		String id = (String) session.getAttribute("id");
 		String range = "3 month";
-		
-		if(session.getAttribute("update") != null) {
-			boolean isUpdate = (Boolean)session.getAttribute("update");
-			
-			if(isUpdate) {
+
+		if (session.getAttribute("update") != null) {
+			boolean isUpdate = (Boolean) session.getAttribute("update");
+
+			if (isUpdate) {
 				memService.getMyData(m, id, range);
 				session.setAttribute("update", false);
-			}else {
+			} else {
 				memService.findMyDataCache(m, id);
 			}
-		}else {		
-			System.out.println("DAO접근");
+		} else {
 			session.setAttribute("update", false);
 			memService.getMyData(m, id, range);
 		}
-				
 		m.addObject("list", memService.getCurCache(id));
 		return m;
 	}
@@ -97,8 +95,6 @@ public class HomeController {
 			HttpServletRequest request, HttpServletResponse response) {
 
 		List<String> allergy = Arrays.asList(request.getParameterValues("allergy"));
-		if (allergy.size() == 0) {
-		}
 
 		if (memService.searchById(id) == null) {
 			if (memService.add(new Member(id, pwd, name, addr, phone, allergy))) {

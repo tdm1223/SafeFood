@@ -52,6 +52,10 @@
 </head>
 
 <body>
+	<div class="page-loader">
+		<div class="bg-primary"></div>
+	</div>
+
 	<!-- Content -->
 	<div class="authentication-wrapper authentication-3">
 		<div class="authentication-inner">
@@ -98,7 +102,7 @@
 						<!-- / Form -->
 
 						<div class="text-center text-muted">
-							Don't have an account yet? <a href="signUp">Sign Up</a>
+							아직 아이디가 없으신가요? <a href="signUp">회원가입</a>
 						</div>
 					</div>
 				</div>

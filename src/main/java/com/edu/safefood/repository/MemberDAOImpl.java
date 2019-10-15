@@ -227,9 +227,7 @@ public class MemberDAOImpl implements MemberDAO {
 		HashMap<String, Object> param = new HashMap<String, Object>();
 		param.put("id", id);
 		param.put("range", range);
-
 		List<Dashboard> result = ss.selectList("mem.eatData", param);
-
 		return result;
 	}
 

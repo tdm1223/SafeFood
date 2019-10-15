@@ -109,6 +109,7 @@ public class FoodController {
 		return model;
 	}
 
+	// 음식 리스트를 보여주는 페이지를 만드는 setViewName인자에 viewName을 넣음
 	private ModelAndView makeList(HttpServletRequest req, ModelAndView model, Criteria cri, HttpSession ss,
 			String viewName) {
 		try {

@@ -71,9 +71,6 @@
 		quan, edate) values(#{id}, #{code}, #{quan}, now())
 	</insert>
 
-	<!-- <insert id="eatFood" parameterType="map"> insert into eat values(#{id}, 
-		#{code}, #{quan}) on duplicate key update quan=(select a.quan from eat a 
-		where id=#{id} and code=#{code})+#{quan} </insert> -->
 	<insert id="zzimFood" parameterType="map">
 		insert into zzim (id,code)
 		select #{id},#{code} from dual
@@ -171,7 +168,8 @@
 		name like CONCAT('%',#{name},'%')
 		or maker like CONCAT('%',#{maker},'%')
 		or calory=#{calory}
-		order by rand()
+		order by
+		rand()
 		limit 4;
 	</select>
 </mapper>
