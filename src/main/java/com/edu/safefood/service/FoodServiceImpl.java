@@ -25,10 +25,7 @@ public class FoodServiceImpl implements FoodService {
 				for (Food f : list) {
 					for (String allergy : aller) {
 						// 알레르기 포함하고있다면
-						if (f.getMaterial().contains(allergy)) {
-							f.setIsAllergy(true);
-						}
-						if (f.getAllergy().contains(allergy)) {
+						if (f.getMaterial().contains(allergy) || f.getAllergy().contains(allergy)) {
 							f.setIsAllergy(true);
 						}
 					}

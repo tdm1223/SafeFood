@@ -38,7 +38,8 @@ public class FoodController {
 	@Autowired
 	MemberService mser;
 
-	public int getSortType(String sortType) {
+	// 정렬 종류 설정하는 함수 (name == 1, calorie == 2)
+	private int setSortType(String sortType) {
 		if (sortType == null) {
 			return 0;
 		} else if (sortType.equals("1")) {
@@ -49,7 +50,8 @@ public class FoodController {
 		return -1;
 	}
 
-	public int getSearchCondition(String searchCondition) {
+	// 검색 조건 설정하는 함수. (name == 1, maker == 2, material == 3, none == 4)
+	private int setSearchCondition(String searchCondition) {
 		if (searchCondition.equals("name")) {
 			return 1;
 		} else if (searchCondition.equals("maker")) {
@@ -60,78 +62,6 @@ public class FoodController {
 		return 0;
 	}
 
-	@RequestMapping("/foodInfo")
-	public ModelAndView info(ModelAndView m, HttpServletRequest req, Criteria cri, HttpSession ss) {
-		String searchCondition = req.getParameter("searchCondition");
-		String searchWord = req.getParameter("searchWord");
-		String sortType = req.getParameter("sortType");
-
-		String id = (String) ss.getAttribute("id");
-		List<String> aller = mser.searchById(id).getAllergy();
-		PageMaker pageMaker = new PageMaker();
-		pageMaker.setCri(cri);
-
-		int sort = getSortType(sortType);
-
-		if (searchCondition == null || searchCondition.equals("") || searchWord == null || searchWord.equals("")) {
-			if (sort == 0) {
-				req.setAttribute("list", ser.getList(cri, aller));
-				m.setViewName("foodInfo");
-				pageMaker.setTotalCnt(ser.totalCount());
-			} else {
-				req.setAttribute("list", ser.search(0, searchWord, sort, cri, aller));
-				m.setViewName("foodInfo");
-				pageMaker.setTotalCnt(ser.totalCount());
-			}
-		} else {
-			int type = getSearchCondition(searchCondition);
-
-			req.setAttribute("list", ser.search(type, searchWord, sort, cri, aller));
-			m.setViewName("foodInfo");
-			m.addObject("searchCondition", searchCondition);
-			m.addObject("searchWord", searchWord);
-
-			pageMaker.setTotalCnt(ser.searchTotalCount(type, searchWord));
-
-		}
-		m.addObject("pageMaker", pageMaker);
-		return m;
-	}
-
-	@RequestMapping("/imgInfo")
-	public ModelAndView imgInfo(ModelAndView m, HttpServletRequest req, Criteria cri, HttpSession ss) {
-		String searchCondition = req.getParameter("searchCondition");
-		String searchWord = req.getParameter("searchWord");
-		String sortType = req.getParameter("sortType");
-		String id = (String) ss.getAttribute("id");
-		List<String> aller = mser.searchById(id).getAllergy();
-		PageMaker pageMaker = new PageMaker();
-		pageMaker.setCri(cri);
-
-		int sort = getSortType(sortType);
-
-		if (searchCondition == null || searchCondition.equals("") || searchWord == null || searchWord.equals("")) {
-			if (sort == 0) {
-				req.setAttribute("list", ser.getList(cri, aller));
-				m.setViewName("foodImgInfo");
-			} else {
-				req.setAttribute("list", ser.search(0, searchWord, sort, cri, aller));
-				m.setViewName("foodImgInfo");
-			}
-		} else {
-			int type = getSearchCondition(searchCondition);
-
-			req.setAttribute("list", ser.search(type, searchWord, sort, cri, aller));
-			m.setViewName("foodImgInfo");
-			m.addObject("searchCondition", searchCondition);
-			m.addObject("searchWord", searchWord);
-
-			pageMaker.setTotalCnt(ser.searchTotalCount(type, searchWord));
-		}
-		m.addObject("pageMaker", pageMaker);
-		return m;
-	}
-
 	@RequestMapping("/detail")
 	public ModelAndView detailFood(ModelAndView model, HttpServletRequest req) {
 		try {
@@ -140,9 +70,7 @@ public class FoodController {
 			String code = req.getParameter("code");
 			Set<String> s = new TreeSet<String>();
 			Set<String> s2 = new TreeSet<String>();
-			if (id == null) {
-
-			} else {
+			if (id != null) {
 				StringBuilder sb = new StringBuilder();
 				StringBuilder sb2 = new StringBuilder();
 				Member m = mser.searchById(id);
@@ -181,8 +109,8 @@ public class FoodController {
 		return model;
 	}
 
-	@RequestMapping("/list")
-	private ModelAndView listFood(HttpServletRequest req, ModelAndView model, Criteria cri, HttpSession ss) {
+	private ModelAndView makeList(HttpServletRequest req, ModelAndView model, Criteria cri, HttpSession ss,
+			String viewName) {
 		try {
 			String searchCondition = req.getParameter("searchCondition");
 			String searchWord = req.getParameter("searchWord");
@@ -191,69 +119,35 @@ public class FoodController {
 			List<String> aller = mser.searchById(id).getAllergy();
 			PageMaker pageMaker = new PageMaker();
 			pageMaker.setCri(cri);
+			model.addObject("pageMaker", pageMaker);
 
-			int sort = getSortType(sortType);
-
+			int sort = setSortType(sortType);
 			if (searchCondition == null || searchCondition.equals("") || searchWord == null || searchWord.equals("")) {
 				req.setAttribute("list", ser.getList(cri, aller));
 				pageMaker.setTotalCnt(ser.totalCount());
-				model.addObject("pageMaker", pageMaker);
-
 			} else {
-				int type = getSearchCondition(searchCondition);
-
+				int type = setSearchCondition(searchCondition);
 				req.setAttribute("list", ser.search(type, searchWord, sort, cri, aller));
 				model.addObject("searchCondition", searchCondition);
 				model.addObject("searchWord", searchWord);
 				model.addObject("sortType", sortType);
-
 				pageMaker.setTotalCnt(ser.searchTotalCount(type, searchWord));
-				model.addObject("pageMaker", pageMaker);
 			}
-
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		model.setViewName("foodInfo");
+		model.setViewName(viewName);
 		return model;
+	}
+
+	@RequestMapping("/list")
+	private ModelAndView listFood(HttpServletRequest req, ModelAndView model, Criteria cri, HttpSession ss) {
+		return makeList(req, model, cri, ss, "foodInfo");
 	}
 
 	@RequestMapping("/imgList")
 	private ModelAndView imgListFood(HttpServletRequest req, ModelAndView model, Criteria cri, HttpSession ss) {
-		try {
-
-			String searchCondition = req.getParameter("searchCondition");
-			String searchWord = req.getParameter("searchWord");
-			String sortType = req.getParameter("sortType");
-			String id = (String) ss.getAttribute("id");
-			List<String> aller = mser.searchById(id).getAllergy();
-			PageMaker pageMaker = new PageMaker();
-			pageMaker.setCri(cri);
-
-			int sort = getSortType(sortType);
-
-			if (searchCondition == null || searchCondition.equals("") || searchWord == null || searchWord.equals("")) {
-				req.setAttribute("list", ser.getList(cri, aller));
-
-				pageMaker.setTotalCnt(ser.totalCount());
-				model.addObject("pageMaker", pageMaker);
-			} else {
-				int type = getSearchCondition(searchCondition);
-
-				req.setAttribute("list", ser.search(type, searchWord, sort, cri, aller));
-				model.addObject("searchCondition", searchCondition);
-				model.addObject("searchWord", searchWord);
-				model.addObject("sortType", sortType);
-
-				pageMaker.setTotalCnt(ser.searchTotalCount(type, searchWord));
-				model.addObject("pageMaker", pageMaker);
-			}
-
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-		model.setViewName("foodImgInfo");
-		return model;
+		return makeList(req, model, cri, ss, "foodImgInfo");
 	}
 
 	@RequestMapping("/searchNaver")
@@ -273,11 +167,9 @@ public class FoodController {
 		try {
 			List<NaverSearchObject> list = ns.search(query);
 			entity.put("list", list);
-
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-
 		return entity;
 	}
 
@@ -288,11 +180,9 @@ public class FoodController {
 		try {
 			List<Blog> list = bs.search(query);
 			entity.put("list", list);
-
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-
 		return entity;
 	}
 }

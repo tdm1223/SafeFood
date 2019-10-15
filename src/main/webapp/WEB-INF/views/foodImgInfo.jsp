@@ -11,7 +11,7 @@
 	function search() {
 		var searchCondition = document.getElementById("searchCondition").value;
 		var searchWord = document.getElementById("searchWord").value;
-		location.href = "/food/imgInfo?searchCondition=" + searchCondition
+		location.href = "/food/imgList?searchCondition=" + searchCondition
 				+ "&searchWord=" + searchWord + "&sortType=0";
 	}
 	function sort() {
@@ -42,7 +42,7 @@
 			searchWord = "";
 		}
 
-		location.href = "/food/imgInfo?searchCondition=" + searchCondition
+		location.href = "/food/imgList?searchCondition=" + searchCondition
 				+ "&searchWord=" + searchWord + "&sortType=" + sortType;
 	}
 	
