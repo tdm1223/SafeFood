@@ -4,8 +4,6 @@ import java.io.IOException;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.Set;
-import java.util.TreeSet;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
@@ -18,9 +16,9 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.edu.safefood.dto.Allergy;
 import com.edu.safefood.dto.Blog;
 import com.edu.safefood.dto.Criteria;
-import com.edu.safefood.dto.Member;
 import com.edu.safefood.dto.NaverSearchObject;
 import com.edu.safefood.dto.PageMaker;
 import com.edu.safefood.service.FoodService;
@@ -63,43 +61,40 @@ public class FoodController {
 	}
 
 	@RequestMapping("/detail")
-	public ModelAndView detailFood(ModelAndView model, HttpServletRequest req) {
+	public ModelAndView detailFood(ModelAndView model, HttpServletRequest req, HttpSession session) {
 		try {
-			HttpSession session = req.getSession();
 			String id = (String) session.getAttribute("id");
 			String code = req.getParameter("code");
-			Set<String> s = new TreeSet<String>();
-			Set<String> s2 = new TreeSet<String>();
-			if (id != null) {
-				StringBuilder sb = new StringBuilder();
-				StringBuilder sb2 = new StringBuilder();
-				Member m = mser.searchById(id);
-				List<String> temp = m.getAllergy();
-				if (temp.size() != 0) {
-					String mat = ser.getFood(Integer.parseInt(code)).getMaterial();
-					for (String aller : temp) {
-						if (mat.contains(aller)) {
-							s.add(aller);
-							s2.add(aller);
-						}
-					}
-					String mat2 = ser.getFood(Integer.parseInt(code)).getAllergy();
-					for (String aller : temp) {
-						if (mat2.contains(aller)) {
-							s.add(aller);
-							s2.add(aller);
-						}
-					}
+
+			StringBuilder foodIngredients = new StringBuilder(); // 선택한 음식의 성분+알러지를 저장할 String
+			foodIngredients.append(ser.getFood(Integer.parseInt(code)).getMaterial())
+					.append(ser.getFood(Integer.parseInt(code)).getAllergy());
+
+			StringBuilder allergy = new StringBuilder(); // 선택한 음식이 가지고 있는 알러지
+			List<Allergy> allAllergy = mser.getAllergyListAll(); // 알러지 후보군을 가져옴
+			// 알러지 후보군과 선택한 음식의 성분+알러지값을 비교해서 실제 알러지를 구함
+			for (Allergy a : allAllergy) {
+				if (foodIngredients.toString().contains(a.getName())) {
+					allergy.append(a.getName() + " ");
 				}
-				for (String ss : s) {
-					sb.append(ss + " ");
-				}
-				for (String ss : s2) {
-					sb2.append(ss + " ");
-				}
-				req.setAttribute("allergy", sb.toString());
-				req.setAttribute("myAllergy", sb2.toString());
 			}
+
+			// 사용자의 알러지를 구함
+			if (id != null) {
+				StringBuilder myAllergy = new StringBuilder(); // 사용자의 알러지를 저장할 String
+				List<String> memberAllergy = mser.searchById(id).getAllergy(); // id로 사용자의 알러지 가져온다.
+				// 사용자가 가지고 있는 알러지와 음식이 가지고 있는 알러지를 비교
+				if (memberAllergy.size() > 0) {
+					for (String aller : memberAllergy) {
+						if (foodIngredients.toString().contains(aller)) {
+							myAllergy.append(aller + " ");
+						}
+					}
+				}
+				req.setAttribute("myAllergy", myAllergy.toString());
+			}
+
+			req.setAttribute("allergy", allergy.toString());
 			req.setAttribute("food", ser.getFood(Integer.parseInt(code)));
 			model.setViewName("detail");
 		} catch (Exception e) {
