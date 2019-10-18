@@ -20,6 +20,9 @@
 ### LRU cache
 ![lru](https://user-images.githubusercontent.com/21440957/64861127-2066db80-d66a-11e9-87a2-bf08dd5243f9.png)
 
+### Session cache
+![Session Cache](https://user-images.githubusercontent.com/28692938/67080892-18520c80-f1d1-11e9-950c-3acd3f7c8626.PNG)
+
 ## 개발 환경
 ### BACK-END
 - spring
