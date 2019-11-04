@@ -15,7 +15,6 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.edu.safefood.dto.Food;
 import com.edu.safefood.dto.Member;
 import com.edu.safefood.service.MemberService;
 

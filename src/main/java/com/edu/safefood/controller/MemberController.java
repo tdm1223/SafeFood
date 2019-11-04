@@ -4,8 +4,6 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.Set;
-import java.util.TreeSet;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
@@ -153,9 +151,7 @@ public class MemberController {
 	@RequestMapping(value = "/addFood", method = RequestMethod.POST)
 	public @ResponseBody Map<String, Object> addFood(@RequestBody String req, HttpSession ss) {
 		HashMap<String, Object> entity = new HashMap<>();
-
 		JsonParser paser = new JsonParser();
-		System.out.println(ss.getAttribute("id") + "/ " + ss.getAttribute("update"));
 
 		String id = paser.parse(req).getAsJsonObject().get("id").toString().replace("\"", " ").trim();
 		String quan = paser.parse(req).getAsJsonObject().get("quan").toString().replace("\"", " ").trim();
@@ -165,7 +161,6 @@ public class MemberController {
 		memService.addCache(id, cacheFood);
 
 		try {
-			System.out.println("새로 먹음");
 			memService.eatFood(Integer.parseInt(code), Integer.parseInt(quan), id);
 			ss.setAttribute("update", true);
 			entity.put("msg", "update success");
