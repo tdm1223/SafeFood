@@ -7,12 +7,7 @@ import java.net.URL;
 import java.net.URLEncoder;
 
 //@Service
-public class foodBatch2 {
-
-	/*
-	 * @Autowired SFoodDAO SFDao;
-	 */
-
+public class FoodBatch {
 	int pageNo = 88;
 	int numOfRows = 100;
 
@@ -26,9 +21,9 @@ public class foodBatch2 {
 			StringBuilder urlBuilder = new StringBuilder(host);
 			urlBuilder.append("?" + URLEncoder.encode("ServiceKey", "UTF-8") + "=" + api_key);
 			urlBuilder.append("&" + URLEncoder.encode("pageNo", "UTF-8") + "="
-					+ URLEncoder.encode(String.valueOf(pageNo), "UTF-8")); /* 페이지번호 */
+					+ URLEncoder.encode(String.valueOf(pageNo), "UTF-8")); /* �럹�씠吏�踰덊샇 */
 			urlBuilder.append("&" + URLEncoder.encode("numOfRows", "UTF-8") + "="
-					+ URLEncoder.encode(String.valueOf(numOfRows), "UTF-8")); /* 한 페이지 결과 수 */
+					+ URLEncoder.encode(String.valueOf(numOfRows), "UTF-8")); /* �븳 �럹�씠吏� 寃곌낵 �닔 */
 			urlBuilder.append("&" + URLEncoder.encode("returnType", "UTF-8") + "=json");
 
 			URL url = new URL(urlBuilder.toString());
